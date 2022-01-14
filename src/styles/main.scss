@@ -1,0 +1,297 @@
+// Common styles
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url("../static/fonts/poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../static/fonts/montserrat/Montserrat-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+
+$primary_color: #ff4f01;
+$gray: #7d7d7d;
+
+
+@mixin heading_large($font_size: 20px) {
+  font-size: $font_size;
+  font-weight: bolder;
+}
+
+@mixin heading_middle($font_size: 18px) {
+  font-size: $font_size;
+  font-weight: 400;
+}
+
+@mixin paragraph_text($font_size: 16px) {
+  font-size: $font_size;
+  font-weight: normal;
+}
+
+@mixin thin_paragraph($font_size: 16px) {
+  font-size: $font_size;
+  font-weight: 300;
+}
+
+.App {
+  margin: 0px 10%;
+}
+
+//Navbar styles
+.navbar-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid #e5e5e5;
+  padding: 20px 0px;
+  justify-content: space-between;
+
+  p {
+    @include heading_large(25px);
+    color: $primary_color;
+  }
+
+  button {
+    @include heading_middle(16px);
+    height: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    border-radius: 12px;
+    transition: all ease 0.3s;
+
+    svg {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background: rgba($primary_color, 0.1);
+    }
+  }
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  background: #fcfcfc;
+  padding: 0px 30px;
+
+  input {
+    @include heading_middle;
+    border: none;
+    background: transparent;
+    color: $gray;
+    padding: 10px 20px;
+    outline: none;
+  }
+}
+
+.active_border {
+  border: 2px solid $gray;
+}
+
+//Header card styles
+
+.header-card-container {
+  margin: 40px 0px;
+  padding: 0px 60px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 20%;
+  border-radius: 20px;
+  background: rgba($primary_color, 0.05);
+
+  img {
+    //width: 50%;
+    height: 300px;
+    margin-right: 50px;
+  }
+
+  div {
+    .title {
+      @include heading_large(25px);
+
+    }
+
+    .text {
+      @include thin_paragraph;
+      padding: 10px 0px;
+    }
+    button {
+      margin-top: 20px;
+    }
+  }
+}
+
+.button-primary {
+  font-weight: bold;
+  color: white;
+  background: $primary_color;
+  border-radius: 13px;
+  border: none;
+  padding: 10px 20px;
+  width: 150px;
+  font-size: 16px;
+  transition: all ease-in 100ms;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($primary_color, 0.8);
+  }
+}
+
+.exclusive-title-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    @include heading_large(25px);
+    margin: 10px 0px;
+  }
+  a {
+    text-decoration: none;
+    color: $primary_color;
+  }
+}
+
+//Book card style
+.book-card-container {
+  margin: 100px 0px 0px 0px;
+  border-radius: 13px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 40% 50%;
+  grid-gap: 30px;
+  width: 100%;
+  min-height: 175px;
+  padding: 20px 30px;
+  cursor: pointer;
+  transition: all 100ms ease-in;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .book-image-container {
+    position: relative;
+
+    img {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border: 1px solid #f0f0f0;
+      position: absolute;
+      border-radius: 13px;
+      width: 100%;
+      bottom: 0px;
+    }
+  }
+
+  div {
+    position: relative;
+
+    .book-rating {
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+
+  p {
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: white;
+  }
+
+  .book-name {
+    @include heading_large(20px);
+  }
+  .book-author {
+    @include heading_middle(16px);
+  }
+  .book-rating{
+
+  }
+  .book-price {
+    font-weight: bolder;
+    &:before {
+      content: "Цена: ";
+    }
+    &:after {
+      content: " ₸";
+    }
+  }
+}
+
+.books-container {
+  display: grid;
+  margin-bottom: 50px;
+  max-width: 100%;
+  grid-template-columns: repeat(3, 380px);
+  grid-gap: 30px;
+
+  .book-card-container:nth-child(1n) {
+    background: rgb(29,130,131);
+    background: linear-gradient(72deg, rgba(29,130,131,1) 0%, rgba(54,168,170,1) 46%, rgba(8,98,99,1) 92%);
+  }
+  .book-card-container:nth-child(2n) {
+    background: rgb(212,58,58);
+    background: linear-gradient(90deg, rgba(212,58,58,1) 0%, rgba(255,101,101,1) 30%, rgba(229,82,82,1) 86%, rgba(175,43,43,1) 100%);
+  }
+  .book-card-container:nth-child(3n) {
+    background: rgb(250,210,115);
+    background: linear-gradient(90deg, rgba(250,210,115,1) 0%, rgba(252,176,69,1) 100%);
+  }
+  .book-card-container:nth-child(4n) {
+    background: rgb(83,222,91);
+    background: linear-gradient(90deg, rgba(83,222,91,1) 0%, rgba(34,195,55,1) 100%);
+  }
+  .book-card-container:nth-child(5n) {
+    background: #ec008c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fc6767, #ec008c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  .book-card-container:nth-child(6n) {
+    background: #536976;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #292E49, #536976);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #292E49, #536976); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  .book-card-container:nth-child(7n) {
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  .book-card-container:nth-child(8n) {
+    background: #8E2DE2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}
+
+//Rating styles
+.rating-container {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  svg {
+    margin-right: 5px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}

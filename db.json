@@ -1,0 +1,68 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "Просто Маса",
+      "author": "Борис Акунин",
+      "rating": 4,
+      "imageSrc": "/img/book-images/1.jpg",
+      "price": 299
+    },
+    {
+      "id": 2,
+      "name": "Краткая история Европы",
+      "author": "Саймон Дженкинс",
+      "rating": 4.5,
+      "imageSrc": "/img/book-images/2.jpg",
+      "price": 599
+    },
+    {
+      "id": 3,
+      "name": "Позже",
+      "author": "Стивен Кинг",
+      "rating": 4,
+      "imageSrc": "/img/book-images/3.jpg",
+      "price": 299
+    },
+    {
+      "id": 4,
+      "name": "Самурай без меча",
+      "author": "Китами Масао",
+      "rating": 4,
+      "imageSrc": "/img/book-images/4.jpg",
+      "price": 299
+    },
+    {
+      "id": 5,
+      "name": "Sapiens. Краткая история человечества",
+      "author": "Книга Юваля Харари",
+      "rating": 4,
+      "imageSrc": "/img/book-images/5.jpg",
+      "price": 299
+    },
+    {
+      "id": 6,
+      "name": "Гарри Поттер и философский камень",
+      "author": "Роман Дж. К. Роулинг",
+      "rating": 4,
+      "imageSrc": "/img/book-images/6.jpg",
+      "price": 299
+    },
+    {
+      "id": 5,
+      "name": "Sapiens. Краткая история человечества",
+      "author": "Книга Юваля Харари",
+      "rating": 4,
+      "imageSrc": "/img/book-images/5.jpg",
+      "price": 299
+    },
+    {
+      "id": 6,
+      "name": "Гарри Поттер и философский камень",
+      "author": "Роман Дж. К. Роулинг",
+      "rating": 4,
+      "imageSrc": "/img/book-images/6.jpg",
+      "price": 299
+    }
+  ]
+}
