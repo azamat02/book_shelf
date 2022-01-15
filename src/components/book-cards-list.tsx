@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import BookService from "../services/bookService";
 import BookCardItem from "./book-card-item";
+import {ClipLoader} from "react-spinners";
 
 export default function BookCardsList() {
     const [books, setBooks] = useState(null)
@@ -11,6 +12,7 @@ export default function BookCardsList() {
             bookService.getBooks().then(res=>{
                 setBooks(res)
             }).catch(error=>{
+                console.log(error)
                 console.log("Internal error 500")
             })
         }
@@ -19,6 +21,14 @@ export default function BookCardsList() {
     if (books === []) {
         return (
             <p>Books not found</p>
+        )
+    }
+
+    if (!books) {
+        return (
+            <div className={"spinner"}>
+                <ClipLoader color={"#ff4f01"} size={60}/>
+            </div>
         )
     }
 

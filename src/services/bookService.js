@@ -9,4 +9,9 @@ export default class BookService{
         let res = await axios.get(`${this.apiBase}`).then(res=>{return res})
         return res.data;
     }
+
+    async getBookById (id) {
+        let res = await axios.get(`${this.apiBase}/${id}`).then(res=>{return res})
+        return res.data;
+    }
 }

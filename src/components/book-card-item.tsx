@@ -1,6 +1,7 @@
 import React from "react";
 import '../styles/main.scss'
 import Rating from "./rating";
+import {useNavigate} from "react-router-dom";
 
 interface BookCardItemProps {
     id: number,
@@ -12,9 +13,15 @@ interface BookCardItemProps {
 }
 
 export default function BookCardItem({id, name, author, price, imageSrc, rating}: BookCardItemProps) {
+    const navigate = useNavigate()
+
+    // @ts-ignore
+    const forwardToBookPage = (id) => {
+        navigate(`/book/${id}`)
+    }
 
     return (
-        <div className={"book-card-container"} key={`Book-${id}`}>
+        <div onClick={()=>forwardToBookPage(id)} className={"book-card-container"} key={`Book-${id}`}>
             <div className={"book-image-container"}>
                 <img src={imageSrc} alt="book_image"/>
             </div>

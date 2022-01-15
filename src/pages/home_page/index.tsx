@@ -1,16 +1,12 @@
 import React from 'react'
 import '../../styles/main.scss'
-import Navbar from "../../components/navbar";
 import HeaderCard from "../../components/header_card";
 import BookCardsList from "../../components/book-cards-list";
-import Footer from "../../components/footer";
 
 export default function HomePage() {
     return (
         <div>
             <div className={"home-page-container"}>
-                <Navbar/>
-
                 <HeaderCard/>
 
                 <div className={"exclusive-title-block"}>
@@ -18,13 +14,12 @@ export default function HomePage() {
                         Exclusive
                     </p>
 
-                    <a href="#">See all</a>
+                    <a href="#see_all">See all</a>
                 </div>
 
                 <BookCardsList/>
             </div>
 
-            <Footer/>
         </div>
     )
 }

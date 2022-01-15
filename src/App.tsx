@@ -1,14 +1,23 @@
 import React from 'react';
 import HomePage from "./pages/home_page";
-import HeaderCard from "./components/header_card";
 import './styles/main.scss'
-import Rating from "./components/rating";
+import Footer from "./components/footer";
+import Navbar from "./components/navbar";
+import {Routes, Route} from "react-router-dom";
+import BookPage from "./pages/book_page";
 
 function App() {
     return (
-        <div className="App">
-            <HomePage/>
-        </div>
+            <div className="App">
+                <Navbar/>
+
+                    <Routes>
+                        <Route path={"/"} element={<HomePage/>}/>
+                        <Route path={"/book/:bookId"} element={<BookPage/>}/>
+                    </Routes>
+
+                <Footer/>
+            </div>
     );
 }
 

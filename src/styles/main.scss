@@ -18,6 +18,10 @@
   font-family: 'Montserrat';
 }
 
+a {
+  text-decoration: none;
+}
+
 $primary_color: #ff4f01;
 $gray: #7d7d7d;
 
@@ -43,7 +47,7 @@ $gray: #7d7d7d;
 }
 
 .home-page-container {
-  margin: 0px 10%;
+  margin: 0 10%;
 }
 
 //Navbar styles
@@ -51,7 +55,8 @@ $gray: #7d7d7d;
   display: flex;
   align-items: center;
   border-bottom: 0.5px solid #e5e5e5;
-  padding: 20px 0px;
+  padding: 20px 0;
+  margin: 0 10%;
   justify-content: space-between;
 
   p {
@@ -86,7 +91,7 @@ $gray: #7d7d7d;
   align-items: center;
   border-radius: 30px;
   background: #fcfcfc;
-  padding: 0px 30px;
+  padding: 0 30px;
   cursor: pointer;
 
   input {
@@ -105,8 +110,8 @@ $gray: #7d7d7d;
 
 //Header card styles
 .header-card-container {
-  margin: 40px 0px;
-  padding: 0px 60px;
+  margin: 40px 0;
+  padding: 0 60px;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(2, auto);
@@ -128,7 +133,7 @@ $gray: #7d7d7d;
 
     .text {
       @include thin_paragraph;
-      padding: 10px 0px;
+      padding: 10px 0;
     }
     button {
       margin-top: 20px;
@@ -138,6 +143,7 @@ $gray: #7d7d7d;
 
 .button-primary {
   font-weight: bold;
+  display: block;
   color: white;
   background: $primary_color;
   border-radius: 13px;
@@ -146,10 +152,31 @@ $gray: #7d7d7d;
   width: 150px;
   font-size: 16px;
   transition: all ease-in 100ms;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
   cursor: pointer;
 
   &:hover {
     background: rgba($primary_color, 0.8);
+  }
+}
+
+
+.button-secondary {
+  font-weight: bold;
+  display: block;
+  color: $primary_color;
+  background: white;
+  border-radius: 13px;
+  border: solid 1px #d3d3d3;
+  padding: 10px 20px;
+  width: 150px;
+  font-size: 16px;
+  transition: all ease-in 100ms;
+  cursor: pointer;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+
+  &:hover {
+    background: rgba($primary_color, 0.1);
   }
 }
 
@@ -160,7 +187,7 @@ $gray: #7d7d7d;
 
   p {
     @include heading_large(25px);
-    margin: 10px 0px;
+    margin: 10px 0;
   }
   a {
     text-decoration: none;
@@ -170,7 +197,7 @@ $gray: #7d7d7d;
 
 //Book card style
 .book-card-container {
-  margin: 100px 0px 0px 0px;
+  margin: 100px 0 0 0;
   border-radius: 13px;
   position: relative;
   display: grid;
@@ -181,7 +208,7 @@ $gray: #7d7d7d;
   padding: 20px 30px;
   cursor: pointer;
   transition: all 100ms ease-in;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
 
   &:hover {
     transform: scale(1.05);
@@ -191,12 +218,12 @@ $gray: #7d7d7d;
     position: relative;
 
     img {
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
       border: 1px solid #f0f0f0;
       position: absolute;
       border-radius: 13px;
       width: 100%;
-      bottom: 0px;
+      bottom: 0;
     }
   }
 
@@ -205,7 +232,7 @@ $gray: #7d7d7d;
 
     .book-rating {
       position: absolute;
-      bottom: 0px;
+      bottom: 0;
     }
   }
 
@@ -334,7 +361,7 @@ $gray: #7d7d7d;
   .footer-links {
     a {
       display: block;
-      padding: 10px 0px;
+      padding: 10px 0;
       text-decoration: none;
       color: #b43700;
       font-weight: bolder;
@@ -346,3 +373,64 @@ $gray: #7d7d7d;
   }
 }
 
+//Spinner
+.spinner {
+  display: flex;
+  margin: 200px;
+  justify-content: center;
+}
+
+//Book page
+.book-page-container {
+  padding: 50px 10%;
+  display: flex;
+
+  img {
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    border: 1px solid #cccccc;
+    width: 25%;
+  }
+
+  div {
+    padding: 20px 35px;
+
+    .book-title {
+      margin-bottom: 20px;
+      font-weight: bolder;
+      font-size: 40px;
+    }
+
+    .book-author {
+      font-weight: bold;
+      color: $primary_color;
+    }
+
+    .book-rating {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #7d7d7d;
+      margin: 10px 0;
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+
+    .book-price {
+      font-weight: bolder;
+      font-size: 20px;
+      margin: 50px 0;
+
+      &:before {
+        content: "Цена: ";
+      }
+
+      &:after {
+        content: " ₸";
+      }
+    }
+  }
+}
