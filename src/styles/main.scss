@@ -13,6 +13,7 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
   box-sizing: border-box;
   font-family: 'Montserrat';
 }
@@ -41,7 +42,7 @@ $gray: #7d7d7d;
   font-weight: 300;
 }
 
-.App {
+.home-page-container {
   margin: 0px 10%;
 }
 
@@ -86,6 +87,7 @@ $gray: #7d7d7d;
   border-radius: 30px;
   background: #fcfcfc;
   padding: 0px 30px;
+  cursor: pointer;
 
   input {
     @include heading_middle;
@@ -102,7 +104,6 @@ $gray: #7d7d7d;
 }
 
 //Header card styles
-
 .header-card-container {
   margin: 40px 0px;
   padding: 0px 60px;
@@ -210,6 +211,7 @@ $gray: #7d7d7d;
 
   p {
     cursor: pointer;
+    margin-bottom: 5px;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -239,7 +241,7 @@ $gray: #7d7d7d;
 
 .books-container {
   display: grid;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
   max-width: 100%;
   grid-template-columns: repeat(3, 380px);
   grid-gap: 30px;
@@ -292,6 +294,55 @@ $gray: #7d7d7d;
   }
 }
 
-::-webkit-scrollbar {
-  width: 10px;
+//Footer styles
+.footer {
+  padding: 50px 10%;
+
+  background: rgba($primary_color, 0.15);
+
+  div {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+
+    .footer-social-links {
+      text-decoration: none;
+      a {
+        display: flex;
+        align-items: center;
+        padding-bottom: 20px;
+        color: $primary_color;
+        text-decoration: none;
+        font-weight: bold;
+
+        svg {
+          margin-right: 10px;
+        }
+
+        &:hover {
+
+        }
+      }
+    }
+  }
+
+  .title {
+    @include heading_large(25px);
+    color: black;
+  }
+
+  .footer-links {
+    a {
+      display: block;
+      padding: 10px 0px;
+      text-decoration: none;
+      color: #b43700;
+      font-weight: bolder;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
+

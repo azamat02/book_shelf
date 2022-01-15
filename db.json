@@ -35,7 +35,7 @@
     {
       "id": 5,
       "name": "Sapiens. Краткая история человечества",
-      "author": "Книга Юваля Харари",
+      "author": "Юваль Харари",
       "rating": 4,
       "imageSrc": "/img/book-images/5.jpg",
       "price": 299
@@ -43,26 +43,26 @@
     {
       "id": 6,
       "name": "Гарри Поттер и философский камень",
-      "author": "Роман Дж. К. Роулинг",
+      "author": "Дж. К. Роулинг",
       "rating": 4,
       "imageSrc": "/img/book-images/6.jpg",
       "price": 299
     },
     {
-      "id": 5,
-      "name": "Sapiens. Краткая история человечества",
-      "author": "Книга Юваля Харари",
+      "id": 7,
+      "name": "Жизнь — это подарок. 102 истории о том, как находить счастье в мелочах",
+      "author": "Стефанос Ксенакис",
       "rating": 4,
-      "imageSrc": "/img/book-images/5.jpg",
-      "price": 299
+      "imageSrc": "/img/book-images/7.jpg",
+      "price": 599
     },
     {
-      "id": 6,
-      "name": "Гарри Поттер и философский камень",
-      "author": "Роман Дж. К. Роулинг",
+      "id": 8,
+      "name": "Когда мы виделись в последний раз",
+      "author": "Константин Лив",
       "rating": 4,
-      "imageSrc": "/img/book-images/6.jpg",
-      "price": 299
+      "imageSrc": "/img/book-images/8.jpg",
+      "price": 790
     }
   ]
 }

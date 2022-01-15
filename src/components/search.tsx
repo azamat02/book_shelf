@@ -13,7 +13,7 @@ export default function Search() {
     }
 
     return (
-        <div className={"search-container"}>
+        <div id={"search"} className={"search-container"}>
             <Search_icon color={"#7d7d7d"}/>
 
             <input type="text"

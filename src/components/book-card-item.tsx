@@ -21,10 +21,10 @@ export default function BookCardItem({id, name, author, price, imageSrc, rating}
             <div>
                 <p className={"book-name"} title={name}>{name}</p>
                 <p className={"book-author"} title={author}>{author}</p>
+                <p className={"book-price"} title={''+price}>{price}</p>
                 <div className={"book-rating"}>
                     <Rating rating={rating}/>
                 </div>
-                <p className={"book-price"} title={''+price}>{price}</p>
             </div>
         </div>
     )
