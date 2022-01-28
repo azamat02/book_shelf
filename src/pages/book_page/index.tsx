@@ -2,11 +2,12 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import BookService from "../../services/bookService";
 import {ClipLoader} from "react-spinners";
-import {Star} from "react-feather";
+import {ChevronDown, ChevronUp, Star} from "react-feather";
 
-interface BookResponse {
+export interface BookResponse {
     id: number,
     name: string,
+    description: string,
     author: string,
     rating: number,
     imageSrc: string,
@@ -17,6 +18,13 @@ export default function BookPage() {
     const {bookId} = useParams()
     const [book, setBook] = useState<BookResponse>()
     const bookService = new BookService();
+    const [extendedDescriptionOpen, setExtendedDescriptionOpen] = useState(false)
+
+    const toggleShowDescription = () => {
+        let p = document.getElementsByClassName("book-description")
+        p[0].classList.toggle("paragraph-hidden")
+        setExtendedDescriptionOpen(!extendedDescriptionOpen)
+    }
 
     useEffect(()=>{
         bookService.getBookById(bookId).then((res)=>{
@@ -47,11 +55,29 @@ export default function BookPage() {
                 </p>
                 <p className={"book-title"}>{book.name}</p>
                 <p className="book-author">{book.author}</p>
+                <p className="book-description paragraph-hidden">{book.description}</p>
+
+                <button className={"toggle-show-more-button"} onClick={toggleShowDescription}>
+                    {
+                        extendedDescriptionOpen ? (
+                            <>
+                                <ChevronUp color={"#9d3100"} size={20}/>
+                                Hide all
+                            </>
+                        ) : (
+                            <>
+                                <ChevronDown color={"#9d3100"} size={20}/>
+                                Show all
+                            </>
+                        )
+                    }
+                </button>
+
                 <p className="book-price">{book.price}</p>
 
-                <button className={"button-primary"} style={{width: "300px"}}>Купить за {book.price}</button>
+                <button className={"button-primary"} style={{width: "300px"}}>Buy for {book.price} ₸</button>
                 <br/>
-                <button className={"button-secondary"} style={{width: "300px"}}>Добавить в корзину</button>
+                <button className={"button-secondary"} style={{width: "300px"}}>Add to cart</button>
 
             </div>
         </div>

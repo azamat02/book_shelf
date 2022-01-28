@@ -1,10 +1,12 @@
 import React from "react";
 import '../styles/main.scss'
 import Search from "./search";
-import {Grid} from "react-feather";
-import {Link} from "react-router-dom";
+import {ShoppingCart} from "react-feather";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function Navbar() {
+    const navigator = useNavigate();
+
     return (
         <div className={"navbar-container"}>
             <Link to={"/"}>
@@ -13,9 +15,9 @@ export default function Navbar() {
 
             <Search/>
 
-            <button>
-                <Grid color={"#ff4f01"}/>
-                Categories
+            <button onClick={()=>{navigator("/cart")}}>
+                <ShoppingCart color={"#ff4f01"}/>
+                Cart
             </button>
         </div>
     )

@@ -11,10 +11,8 @@ export default function HomePage() {
 
                 <div className={"exclusive-title-block"}>
                     <p>
-                        Exclusive
+                        All books
                     </p>
-
-                    <a href="#see_all">See all</a>
                 </div>
 
                 <BookCardsList/>

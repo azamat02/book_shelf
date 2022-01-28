@@ -14,4 +14,18 @@ export default class BookService{
         let res = await axios.get(`${this.apiBase}/${id}`).then(res=>{return res})
         return res.data;
     }
+
+    async getBookByNameOrAuthor (search_value) {
+        let all_books = await this.getBooks()
+        all_books = all_books.filter(book => {
+            if (book.name.toLowerCase().includes(search_value.toLowerCase())) {
+                return book
+            }
+            if (book.author.toLowerCase().includes(search_value.toLowerCase())) {
+                return book
+            }
+        })
+
+        return all_books
+    }
 }

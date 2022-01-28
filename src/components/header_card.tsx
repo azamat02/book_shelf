@@ -9,13 +9,13 @@ export default function HeaderCard() {
         <div className={"header-card-container"}>
             <div>
                 <p className="title">
-                    Discover tips, ideas, books lists and more for educators and families.
+                    A large number of available books on our website for ordering!
                 </p>
 
                 <p className="text">
-                    Thoughtful created with engaging stories and fun characters that your family will love!
+                    You can find any book according to your needs and interests, use the search.
                 </p>
-                <button className={"button-primary"}>Start today</button>
+                <button className={"button-primary"}>All books</button>
             </div>
 
             <img src={reading_book_image} alt="reading book"/>

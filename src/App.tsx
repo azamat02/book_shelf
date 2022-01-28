@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import {Routes, Route} from "react-router-dom";
 import BookPage from "./pages/book_page";
+import SearchPage from "./pages/search_page";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Routes>
                         <Route path={"/"} element={<HomePage/>}/>
                         <Route path={"/book/:bookId"} element={<BookPage/>}/>
+                        <Route path={"/search_page"} element={<SearchPage/>}/>
                     </Routes>
 
                 <Footer/>

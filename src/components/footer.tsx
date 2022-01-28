@@ -1,6 +1,6 @@
 import React from "react";
 import {Facebook, Instagram, Twitter, Youtube} from "react-feather";
-import {BsTelegram} from "react-icons/all";
+import {Link} from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -10,9 +10,9 @@ export default function Footer() {
             </p>
             <div>
                 <p className="footer-links">
-                    <a href="#">Home</a>
+                    <a href="#">Main</a>
                     <a href="#search">Search</a>
-                    <a href="#">Categories</a>
+                    <Link to="cart">Cart</Link>
                 </p>
                 <p className="footer-social-links">
                     <a href="#">
