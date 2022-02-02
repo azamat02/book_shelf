@@ -4,6 +4,7 @@ import BookService from "../../services/bookService";
 import {ClipLoader} from "react-spinners";
 import SearchResultBooksList from "../../components/search-result-books-list";
 import {BookResponse} from "../book_page";
+import {useDispatch, useSelector} from "react-redux";
 
 export default function SearchPage() {
     const [foundedBooks, setFoundedBooks] = useState<Array<BookResponse>>();

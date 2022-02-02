@@ -18,6 +18,20 @@
   font-family: 'Montserrat';
 }
 
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f6f6f6;
+  position: relative;
+  margin: 0;
+  padding-bottom: 300px;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
 a {
   text-decoration: none;
 }
@@ -91,7 +105,7 @@ $gray: #7d7d7d;
   align-items: center;
   border-radius: 30px;
   background: #fcfcfc;
-  padding: 0 30px;
+  padding: 3px 5px 3px 30px;
   cursor: pointer;
 
   input {
@@ -151,6 +165,14 @@ $gray: #7d7d7d;
       margin-top: 20px;
     }
   }
+}
+
+.button-link {
+  border: none;
+  background: transparent;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
 }
 
 .button-primary {
@@ -335,8 +357,11 @@ $gray: #7d7d7d;
 
 //Footer styles
 .footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   padding: 50px 10%;
-
   background: rgba($primary_color, 0.15);
 
   div {
@@ -510,7 +535,6 @@ $gray: #7d7d7d;
   border: solid 1px #cccccc;
   box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 
-
   img {
     width: 150px;
     border-radius: inherit;
@@ -554,14 +578,20 @@ $gray: #7d7d7d;
       margin: 20px 0;
     }
   }
+
+  .buttons {
+    display: flex;
+
+    button {
+      margin-right: 20px;
+      margin-bottom: 0;
+    }
+  }
 }
 
 .cart-button {
-  position: absolute;
   width: 45px;
-  top: 0;
-  right: 15px;
-  border-radius: 50%;
+  border-radius: 20px;
   padding: 10px;
   border: none;
   background: white;
@@ -584,7 +614,7 @@ $gray: #7d7d7d;
     svg {
       margin-right: 10px;
     }
-    box-shadow: rgba($primary_color, 0.2) 0 2px 8px 0;
+    box-shadow: rgba($primary_color, 0.4) 0 2px 8px 0;
 
     &:after {
       content: " Add to cart";
@@ -592,3 +622,127 @@ $gray: #7d7d7d;
     }
   }
 }
+
+.cart-button-active {
+  background: $primary_color !important;
+  color: white !important;
+
+  svg {
+    color: white !important;
+  }
+
+  &:hover {
+
+    &:after {
+      content: 'Added to cart';
+    }
+  }
+}
+
+// Cart page styles
+
+.cart-page-container {
+  margin: 50px 10%;
+
+  .title {
+    @include heading_large(30px)
+  }
+
+  .cart-books-list-container {
+    display: grid;
+    grid-template-columns: 60% 35%;
+    grid-gap: 50px;
+    margin: 50px 0;
+  }
+
+  .cart-book-item-container {
+    display: grid;
+    grid-template-columns: 15% 80%;
+    grid-gap: 20px;
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 20px 0px;
+    border: solid 1px #cccccc;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+
+    img {
+      width: 100px;
+      height: 100%;
+      border-radius: 15px;
+    }
+
+    div {
+      position: relative;
+      padding: 10px 0px;
+
+      .quantity-change-button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        font-size: 20px;
+        font-weight: bold;
+        align-items: center;
+        border: none;
+
+        button {
+          border: none;
+          background: $primary_color;
+          padding: 5px 0;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            background: rgba($primary_color, 0.8);
+          }
+        }
+
+        p {
+          padding: 5px 20px;
+          background: white;
+        }
+
+        svg {
+          color: white;
+          margin: 0 5px;
+        }
+      }
+
+      .button-link {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: $primary_color;
+        border-radius: 10px;
+        padding: 10px;
+        font-weight: bold;
+        svg {
+          margin-right: 5px;
+        }
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background: rgba($primary_color, 0.15);
+        }
+      }
+
+      .book-name {
+        @include heading_large(25px);
+      }
+      .book-price {
+        @include heading_middle(20px);
+        margin-top: 20px;
+        font-weight: bold;
+        color: $primary_color;
+
+        &:after {
+          content: ' ₸';
+        }
+      }
+    }
+  }
+}
+
+

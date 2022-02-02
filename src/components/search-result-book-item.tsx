@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {BookResponse} from "../pages/book_page";
-import {ShoppingCart, Star} from "react-feather";
+import {CheckCircle, ShoppingCart, Star} from "react-feather";
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {addBookToCart, removeBookFromCart} from "../store/cartSlice";
 
 interface SearchResultBookItemProps {
     book: BookResponse
@@ -9,9 +11,29 @@ interface SearchResultBookItemProps {
 
 export default function SearchResultBookItem({book}: SearchResultBookItemProps) {
     const navigator = useNavigate()
+    // @ts-ignore
+    const cart = useSelector(state => state.cart.books)
+    const dispatch = useDispatch()
+    const [addedToCart, setAddedToCart] = useState(false)
+
+    useEffect(()=>{
+        if (cart.find((cartBook: any) => cartBook.id === book.id)) {
+            setAddedToCart(true)
+        }
+    }, [])
 
     const goToBookPage = (id: number) => {
         navigator(`/book/${id}`)
+    }
+
+    const addToCart = () => {
+        setAddedToCart(true)
+        dispatch(addBookToCart({bookData: book}))
+    }
+
+    const removeFromCart = () => {
+        setAddedToCart(false)
+        dispatch(removeBookFromCart({id: book.id}))
     }
 
     return (
@@ -36,13 +58,17 @@ export default function SearchResultBookItem({book}: SearchResultBookItemProps) 
                     {book.description}
                 </p>
 
-                <button className={"button-primary"} onClick={()=>goToBookPage(book.id)}>Read more</button>
+                <div className={"buttons"}>
+                    <button className={"button-primary"} onClick={()=>goToBookPage(book.id)}>Read more</button>
 
-                <button className={"cart-button"}>
-                    <p>
-                        <ShoppingCart color={"#ff4f01"} size={25}/>
-                    </p>
-                </button>
+                    <button className={`cart-button ${addedToCart ? 'cart-button-active' : ''}`} onClick={addedToCart ? removeFromCart : addToCart}>
+                        <p>
+                            {
+                                addedToCart ? <CheckCircle color={`white`} size={25}/> : <ShoppingCart color={`#ff4f01`} size={25}/>
+                            }
+                        </p>
+                    </button>
+                </div>
             </div>
         </div>
     )
