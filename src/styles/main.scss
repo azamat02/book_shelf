@@ -703,6 +703,28 @@ $gray: #7d7d7d;
 .cart-page-container {
   margin: 50px 10%;
 
+  .clean-all-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $primary_color;
+    color: white;
+    padding: 8px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 15px;
+    border: none;
+    margin: 40px 0 0 0;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+    svg {
+      margin-right: 10px;
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
   .title {
     @include heading_large(30px);
   }
