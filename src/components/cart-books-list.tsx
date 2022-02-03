@@ -12,6 +12,16 @@ export default function CartBooksList({books}: CartBooksListProps) {
         )
     })
 
+    if (!books.length) {
+        return (
+            <p style={{margin: "50px 20px"}}>
+                <i>
+                    There are no books added to your cart, you can check available books <a href="/#books">here</a>
+                </i>
+            </p>
+        )
+    }
+
     return (
         <div className={"cart-books-list-container"}>
             <div>

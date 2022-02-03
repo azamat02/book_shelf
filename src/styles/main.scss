@@ -89,6 +89,23 @@ $gray: #7d7d7d;
     background: transparent;
     border-radius: 12px;
     transition: all ease 0.3s;
+    position: relative;
+
+    .badge {
+      position: absolute;
+      height: 25px;
+      width: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: -5px;
+      right: -5px;
+      background: $primary_color;
+      font-weight: bold;
+      font-size: 15px;
+      color: white;
+      border-radius: 50%;
+    }
 
     svg {
       margin-right: 10px;
@@ -645,7 +662,7 @@ $gray: #7d7d7d;
   margin: 50px 10%;
 
   .title {
-    @include heading_large(30px)
+    @include heading_large(30px);
   }
 
   .cart-books-list-container {
@@ -730,6 +747,7 @@ $gray: #7d7d7d;
 
       .book-name {
         @include heading_large(25px);
+        width: 70%;
       }
       .book-price {
         @include heading_middle(20px);
