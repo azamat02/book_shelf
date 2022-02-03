@@ -297,6 +297,29 @@ $gray: #7d7d7d;
     color: white;
   }
 
+  .add-to-cart-button {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    cursor: pointer;
+    color: $primary_color;
+    transition: all ease-in-out 0.2s;
+  }
+
+  .added-to-cart {
+    color: white !important;
+    background: $primary_color !important;
+  }
+
   .book-name {
     @include heading_large(20px);
   }
@@ -438,6 +461,25 @@ $gray: #7d7d7d;
 .book-page-container {
   padding: 50px 10%;
   display: flex;
+
+  .added-to-cart {
+    border: none;
+    width: 300px;
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: all ease-in-out 0.3s;
+    background: $primary_color;
+    color: white;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    align-items: center;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
 
   img {
     border-radius: 20px;

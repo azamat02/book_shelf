@@ -15,7 +15,7 @@ export default function HeaderCard() {
                 <p className="text">
                     You can find any book according to your needs and interests, use the search.
                 </p>
-                <button className={"button-primary"}>All books</button>
+                <button onClick={()=>{window.location.href="#all-books"}} className={"button-primary"}>All books</button>
             </div>
 
             <img src={reading_book_image} alt="reading book"/>

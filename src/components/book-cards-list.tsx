@@ -50,7 +50,7 @@ export default function BookCardsList() {
     }
 
     return (
-        <div className={"books-container"}>
+        <div className={"books-container"} id={"all-books"}>
             {renderedBooks}
         </div>
     )

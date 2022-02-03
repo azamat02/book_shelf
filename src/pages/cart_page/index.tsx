@@ -13,8 +13,6 @@ export default function CartPage() {
             </p>
 
             <CartBooksList books={cartBooks}/>
-
-
         </div>
     )
 }

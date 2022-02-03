@@ -2,7 +2,9 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import BookService from "../../services/bookService";
 import {ClipLoader} from "react-spinners";
-import {ChevronDown, ChevronUp, Star} from "react-feather";
+import {CheckCircle, ChevronDown, ChevronUp, Star} from "react-feather";
+import {useDispatch, useSelector} from "react-redux";
+import {addBookToCart, removeBookFromCart} from "../../store/cartSlice";
 
 export interface BookResponse {
     id: number,
@@ -18,6 +20,10 @@ export default function BookPage() {
     const {bookId} = useParams()
     const [book, setBook] = useState<BookResponse>()
     const bookService = new BookService();
+    const dispatch = useDispatch()
+    // @ts-ignore
+    const cartOfBooks = useSelector(state => state.cart.books)
+    const [addedToCart, setAddedToCart] = useState(false)
     const [extendedDescriptionOpen, setExtendedDescriptionOpen] = useState(false)
 
     const toggleShowDescription = () => {
@@ -29,7 +35,9 @@ export default function BookPage() {
     useEffect(()=>{
         bookService.getBookById(bookId).then((res)=>{
             setBook(res)
-            console.log(res)
+            if (cartOfBooks.find((book: BookResponse) => book.id === res.id)) {
+                setAddedToCart(true)
+            }
         })
     }, [])
 
@@ -41,7 +49,16 @@ export default function BookPage() {
         )
     }
 
-    console.log(bookId)
+
+    const addToCart = () => {
+        setAddedToCart(true)
+        dispatch(addBookToCart({bookData: book}))
+    }
+
+    const removeFromCart = () => {
+        setAddedToCart(false)
+        dispatch(removeBookFromCart({id: book.id}))
+    }
 
     return (
         <div className="book-page-container">
@@ -77,7 +94,19 @@ export default function BookPage() {
 
                 <button className={"button-primary"} style={{width: "300px"}}>Buy for {book.price} ₸</button>
                 <br/>
-                <button className={"button-secondary"} style={{width: "300px"}}>Add to cart</button>
+
+                {
+                    addedToCart ?
+                        <button onClick={removeFromCart}
+                                className={"added-to-cart"} >
+                            <CheckCircle/>
+                            Added to cart
+                        </button>
+                        :
+                        <button onClick={addToCart} className={"button-secondary"} style={{width: "300px"}}>
+                            Add to cart
+                        </button>
+                }
 
             </div>
         </div>
